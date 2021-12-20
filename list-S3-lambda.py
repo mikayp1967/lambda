@@ -14,7 +14,7 @@ retmsg='List of buckets:' + bucketlist
 
 
 sns = boto3.client('sns')
-topicarn="arn:aws:sns:eu-west-2:845667357603:testtopic1"
+topicarn="arn:aws:sns:eu-west-2::testtopic1"
 
 response = sns.publish(
     TopicArn=topicarn,

@@ -23,20 +23,20 @@ for instance in all_instances:
     instance_list=instance_list + '\n ' +instance.id + "\t" + instance.state["Name"]
 
 
-
+"""
 response = sns.publish(
     TopicArn=topicarn,
     Message=instance_list,
     Subject='Running resources',
 )
 
-
+"""
 
 def lambda_handler(event, context):
     # TODO implement
     return {
         'statusCode': 200,
-        'body': json.dumps(retmsg)
+        'body': json.dumps(instance_list)
 
     }
 

@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: List running resources function
+Globals:
+  Function:
+    Runtime: python3.7
+    Timeout: 60
+    Environment:
+      Variables:
+        PLACEHOLDER: placeholder
+Resources:
+  RunningResFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: list-all.lambda_handler
+      CodeUri: ./
+      Events:
+        RunningResAPI:
+          Type: Api
+          Properties:
+            Path: /list
+            Method: GET
+      Policies:
+        - AmazonEC2ReadOnlyAccess
+        - AmazonSNSRole
+        - AmazonRDSReadOnlyAccess
+
+Outputs:
+  LisAllApi:
+    Description: "API endpoint to list running resources"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/list"
