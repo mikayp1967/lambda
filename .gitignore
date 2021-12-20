@@ -115,3 +115,7 @@ Terms
 # outputtemplate files from SAM
 outputtemplate.yml
 **/outputtemplate.yml
+
+# SAM files
+.aws-sam/
+**/.aws-sam/

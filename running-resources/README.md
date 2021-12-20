@@ -5,6 +5,13 @@
 * Build it all with cloudformation
 * Have a codebuild pipeline to create/destroy it all
 
+
+## Completed
+
+* Create basic Lambda function and permissions required to run
+* Create SNS
+
+
 ## To do
 
 * Create SNS
@@ -29,7 +36,14 @@ You will need various permissions (trimmed version of following):
 * AWSCloudFormationFullAccess
 * IAMFullAccess
 
-These will change. For now this is how you deploy:
+Deploy the SNS topic
+
+    git clone git@github.com:mikayp1967/lambda.git
+    . ./make-stack.sh "RR-SNS" running-resources/rr-sns.yml
+
+
+
+These will change. For now this is how you deploy the lambda:
 
     export BUCKET=<aws bucket>
     git clone git@github.com:mikayp1967/lambda.git

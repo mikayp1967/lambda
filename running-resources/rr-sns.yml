@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  RunningResourcesNotificationTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+      - Endpoint: "mikayp1967@gmail.com"
+        Protocol: email
+      Tags:
+        - Key: "Project"
+          Value: "running-resources"
