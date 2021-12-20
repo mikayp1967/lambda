@@ -10,12 +10,10 @@
 
 * Create basic Lambda function and permissions required to run
 * Create SNS
-
+  * Reference SNS
 
 ## To do
 
-* Create SNS
-  * Reference SNS
 * Create CW Event to trigger the lambda
   * Create IAM for CW Event to trigger Lambda
 * Extend lambda code
@@ -36,13 +34,6 @@ You will need various permissions (trimmed version of following):
 * AWSCloudFormationFullAccess
 * IAMFullAccess
 
-Deploy the SNS topic
-
-    git clone git@github.com:mikayp1967/lambda.git
-    . ./make-stack.sh "RR-SNS" running-resources/rr-sns.yml
-
-
-
 These will change. For now this is how you deploy the lambda:
 
     export BUCKET=<aws bucket>
@@ -57,4 +48,8 @@ These will change. For now this is how you deploy the lambda:
 
 ## References
 
-https://aws.amazon.com/premiumsupport/knowledge-center/lambda-sam-template-permissions/
+IAM STUFF
+    https://aws.amazon.com/premiumsupport/knowledge-center/lambda-sam-template-permissions/
+
+SNS STUFF
+    https://medium.com/build-succeeded/aws-lambda-with-sam-template-to-subscribe-an-sqs-to-an-sns-topic-52102b6e4bae

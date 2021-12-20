@@ -1,6 +1,7 @@
 import json
 import boto3
 import sys
+import os
 
 # Get list of any chargable active resources (EC2, RDS, volumes/snapshots, EIPs etc)
 # Check if they have an exclusion tag
@@ -9,7 +10,7 @@ import sys
 # I test this on a box with python 3.7.10 so I guess run with that version
 
 sns = boto3.client('sns')
-topicarn="arn:aws:sns:eu-west-2::running-resources"
+sns_arn=os.environ['MY_SNS_TOPIC_ARN']
 
 
 # List of EC2s
@@ -23,14 +24,12 @@ for instance in all_instances:
     instance_list=instance_list + '\n ' +instance.id + "\t" + instance.state["Name"]
 
 
-"""
 response = sns.publish(
-    TopicArn=topicarn,
+    TopicArn=sns_arn,
     Message=instance_list,
     Subject='Running resources',
 )
 
-"""
 
 def lambda_handler(event, context):
     # TODO implement

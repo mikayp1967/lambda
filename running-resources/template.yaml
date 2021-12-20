@@ -5,15 +5,15 @@ Globals:
   Function:
     Runtime: python3.7
     Timeout: 60
-    Environment:
-      Variables:
-        PLACEHOLDER: placeholder
 Resources:
   RunningResFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: list-all.lambda_handler
       CodeUri: ./
+      Environment:
+        Variables:
+          MY_SNS_TOPIC_ARN: !Ref RunningResourcesNotificationTopic
       Events:
         RunningResAPI:
           Type: Api
@@ -22,8 +22,19 @@ Resources:
             Method: GET
       Policies:
         - AmazonEC2ReadOnlyAccess
-        - AmazonSNSRole
+        - AmazonSNSFullAccess
         - AmazonRDSReadOnlyAccess
+
+  RunningResourcesNotificationTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      Subscription:
+      - Endpoint: "mikayp1967@gmail.com"
+        Protocol: email
+      Tags:
+        - Key: "Project"
+          Value: "running-resources"
+
 
 Outputs:
   LisAllApi:

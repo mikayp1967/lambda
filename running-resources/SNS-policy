@@ -1,0 +1,10 @@
+Temp file - this is the policy I need to create/attach
+
+        - Statement:
+            Effect: Allow
+            Principal: "*"
+            Action: "sqs:*"
+            Resource: "*"
+            Condition:
+              ArnEquals:
+                "aws:SourceArn": !Ref RunningResourcesNotificationTopic
