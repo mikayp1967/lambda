@@ -12,15 +12,20 @@
 * Create SNS
   * Reference SNS
 * Create Eventbridge Event to trigger the lambda
+* Basic scanning of RDS resources
+* Extend lambda code
+  *  Find other resources (RDS, Snapshots, AMIs)       
+
 
 ## To do
   
+* Codebuild pipeline to deploy it all
 * Extend lambda code
-  *  Find other resources (RDS, EIP, NGW, Unattached Volumes, Snapshots, AMIs)
+  *  Find other resources (EIP, NGW, Unattached Volumes) - bored of this for now, not really the point anyway
   *  Filter out resources that have certain tags
   *  Allow invocation to stop resources (where applicable)
   *  Enable invocation to delete resources (where applicable)
-* Codebuild pipeline to deploy it all
+
   
 
 ## Instructions

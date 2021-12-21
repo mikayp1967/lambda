@@ -5,6 +5,7 @@ Globals:
   Function:
     Runtime: python3.7
     Timeout: 60
+    MemorySize: 192
 Resources:
   RunningResFunction:
     Type: AWS::Serverless::Function
@@ -14,6 +15,7 @@ Resources:
       Environment:
         Variables:
           MY_SNS_TOPIC_ARN: !Ref RunningResourcesNotificationTopic
+          AWS_REGION: !Ref "AWS::Region"
       Events:
         RunningResAPI:
           Type: Api
