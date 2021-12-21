@@ -23,7 +23,7 @@ Resources:
         RRSchedule:
           Type: Schedule
           Properties:
-            Schedule: 'cron(*/1 * * * ? *)'
+            Schedule: 'cron(*/20 20 * * ? *)'
             Description: 'Schedule Resource shutdown/check'
             Enabled: true
             Name: 'Running_Resources'
