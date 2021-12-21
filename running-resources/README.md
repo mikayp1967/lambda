@@ -11,11 +11,10 @@
 * Create basic Lambda function and permissions required to run
 * Create SNS
   * Reference SNS
+* Create Eventbridge Event to trigger the lambda
 
 ## To do
-
-* Create CW Event to trigger the lambda
-  * Create IAM for CW Event to trigger Lambda
+  
 * Extend lambda code
   *  Find other resources (RDS, EIP, NGW, Unattached Volumes, Snapshots, AMIs)
   *  Filter out resources that have certain tags
@@ -53,3 +52,9 @@ IAM STUFF
 
 SNS STUFF
     https://medium.com/build-succeeded/aws-lambda-with-sam-template-to-subscribe-an-sqs-to-an-sns-topic-52102b6e4bae
+
+CW EVENT:
+    https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-schedule.html
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
+    https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html
+

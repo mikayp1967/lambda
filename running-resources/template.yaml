@@ -20,6 +20,14 @@ Resources:
           Properties:
             Path: /list
             Method: GET
+        RRSchedule:
+          Type: Schedule
+          Properties:
+            Schedule: 'cron(*/1 * * * ? *)'
+            Description: 'Schedule Resource shutdown/check'
+            Enabled: true
+            Name: 'Running_Resources'
+            Input: '{"Action": "List"}'            
       Policies:
         - AmazonEC2ReadOnlyAccess
         - AmazonSNSFullAccess
